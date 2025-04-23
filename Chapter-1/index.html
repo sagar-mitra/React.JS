@@ -1,23 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>React.JS</title>
-</head>
-<body>
-    <div id="root">
-        <h1>Hi my name is Sagar Mitra</h1>
-    </div>
-</body>
+  </head>
+  <body>
+    <div id="root">Not Rendered</div>
 
-<!-- Using javascript -->
-<script>
-    const heading = document.createElement("h2");
-    heading.innerHTML = "I'm a frontend developer"
+    <!-- React CDN -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
 
-    const root = document.getElementById("root");
+    <!-- Using only javascript -->
+    <!-- <script>
+      const heading = document.createElement("h2");
+      heading.innerHTML = "I'm a frontend developer";
 
-    root.appendChild(heading)
-</script>
+      const root = document.getElementById("root");
+
+      root.appendChild(heading);
+    </script> -->
+
+    <!-- Using React -->
+    <!-- <script>
+      const heading = React.createElement(
+        "h1",
+        { id: "title" },
+        "This is React"
+      );
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      root.render(heading);
+    </script> -->
+
+    <script src="App.js"></script>
+  </body>
 </html>
