@@ -27,6 +27,42 @@
   }
 }
 
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #1a1a1a;
+  /* border-bottom: 2px solid #ffcc80; */
+  margin-bottom: 2rem;
+  cursor: pointer;
+}
+
+.navbar-left .navbar-logo {
+  height: 50px;
+  object-fit: contain;
+}
+
+.navbar-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+nav-a:hover {
+  color: #ff5722;
+}
+
 .card {
   padding: 2em;
 }
@@ -84,4 +120,113 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+}
+
+.body-upper {
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  gap: 4rem;
+  flex-direction: row-reverse;
+  margin-top: 2rem;
+}
+
+.search-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.search-input {
+  width: 300px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Shimmer UI */
+.shimmer-card {
+  animation: pulse 1.5s infinite ease-in-out;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  overflow: hidden;
+  width: 300px;
+  font-family: sans-serif;
+}
+
+.shimmer-bg {
+  background: linear-gradient(
+    to right,
+    #eeeeee 0%,
+    #dddddd 20%,
+    #eeeeee 40%,
+    #eeeeee 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+.shimmer-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.shimmer-line {
+  height: 16px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.w70 { width: 70%; }
+.w90 { width: 90%; }
+.w50 { width: 50%; }
+.w40 { width: 40%; }
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Contact */
+
+.contact-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+
+/* Error Page  */
+.notfound-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #fff8f0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.425);
+}
+
+.notfound-container h1 {
+  font-size: 6rem;
+  color: #ff5722;
+  margin-bottom: 10px;
+}
+
+.notfound-container p {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 30px;
 }

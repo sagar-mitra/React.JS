@@ -1,0 +1,17 @@
+.userCard-container {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    background-color: #4a4a4a;
+}
+
+.userCard-container h1 {
+    font-size: 2rem;
+}
+
+.userCard-container h2 {
+    font-size: 1.2rem;
+}
