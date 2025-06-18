@@ -8,7 +8,7 @@ const About = () => {
       <h1>About Page</h1>
       <div className="about-cards">
         <UserCard name="Sagar Mitra" type="Functional" />
-        <UserCardClass name="Sagar Mitra" type="Class based" />
+        <UserCardClass name="Sagar Mitra" type="Class based" age="23"/>
       </div>
     </div>
   );

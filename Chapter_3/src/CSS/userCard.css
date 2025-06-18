@@ -1,9 +1,12 @@
+/* This css file used in both UserCard and UserCardClass components  */
+
 .userCard-container {
     width: 300px;
     height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    align-items: center;
     border-radius: 20px;
     background-color: #4a4a4a;
 }
@@ -14,4 +17,10 @@
 
 .userCard-container h2 {
     font-size: 1.2rem;
+}
+
+.userCard-button {
+    width: 14rem;
+    background-color: #2f2c2c;
+    margin-bottom: 1rem;
 }
