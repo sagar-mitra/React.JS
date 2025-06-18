@@ -1,17 +1,49 @@
 import UserCard from "./UserCard";
 import "../CSS/about.css";
 import UserCardClass from "./UserCardClass";
+import { Component } from "react";
 
-const About = () => {
-  return (
+
+class About extends Component {
+  constructor(props) {
+    super(props)
+    console.log("Parent Constructor");
+  }
+
+  componentDidMount() {
+    console.log("Parent Component Did Mount");
+  }
+
+  render() {
+    console.log("Parent Rendered");
+     return (
     <div className="about-container">
       <h1>About Page</h1>
       <div className="about-cards">
-        <UserCard name="Sagar Mitra" type="Functional" />
+        {/* <UserCard name="Sagar Mitra" type="Functional" /> */}
         <UserCardClass name="Sagar Mitra" type="Class based" age="23"/>
       </div>
     </div>
   );
-};
+  }
+}
+
+
+
+
+
+
+
+// const About = () => {
+//   return (
+//     <div className="about-container">
+//       <h1>About Page</h1>
+//       <div className="about-cards">
+//         <UserCard name="Sagar Mitra" type="Functional" />
+//         <UserCardClass name="Sagar Mitra" type="Class based" age="23"/>
+//       </div>
+//     </div>
+//   );
+// };
 
 export default About;

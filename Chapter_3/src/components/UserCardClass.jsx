@@ -9,7 +9,15 @@ class UserCardClass extends React.Component {
       count: 0, // First state variable
       count2: 2, // Second state variable
     };
+
+    console.log("Child Constructed");
   }
+
+  componentDidMount() {
+    console.log("Child Component Did Mount");
+  }
+
+
   render() {
     // Destructuring
     const { name, type, age } = this.props;
@@ -21,6 +29,8 @@ class UserCardClass extends React.Component {
         count: this.state.count + 1,
       })
     }
+
+    console.log("Child Child Rendered");
 
     return (
       <div className="userCard-container">
