@@ -22,16 +22,20 @@ class UserCardClass extends React.Component {
     const json = await data.json();
     this.setState({
       userInfo: json,
-    })
+    });
 
     console.log(`${this.props.name} Component Did Mount`);
+  }
+
+  componentDidUpdate() {
+    console.log("Component did update");
   }
 
   render() {
     // Destructuring
     // const { name, type, age } = this.props;
-    const { count} = this.state;
-    const{name, location} = this.state.userInfo
+    const { count } = this.state;
+    const { name, location } = this.state.userInfo;
 
     // Updating the state variable
     const handleUserCardBtn = () => {

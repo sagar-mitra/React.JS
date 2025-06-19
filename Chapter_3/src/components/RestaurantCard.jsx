@@ -5,7 +5,7 @@ const RestaurantCard = ({ resData }) => {
   return (
     <div className="restaurant-card">
       <img
-        src={CDN_URL +cloudinaryImageId}
+        src={CDN_URL + cloudinaryImageId}
         alt={name}
         className="restaurant-image"
       />

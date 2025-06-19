@@ -1,42 +1,18 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom"
-import "../CSS/restaurants.css";
+import { useParams } from "react-router-dom";
 import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
 import RestaurantsMenuItems from "./RestaurantsMenuItems";
+import useRestaurantMenu from "../utils/useRestaurantMenu.js";
+import "../CSS/restaurants.css";
 
 const Restaurants = () => {
-  const [resInfo, setResInfo] = useState(null);
-  const [menuItemsList, setMenuItemsList] = useState([]);
+  const { resId } = useParams();
 
-  const {resId} = useParams()
+  const {resInfo, menuItemsList} = useRestaurantMenu(resId);
 
-  useEffect(() => {
-    fetchRestaurantData();
-  }, []);
+  if (resInfo === null && menuItemsList.length === 0) return <ShimmerRestaurantCard />;
 
-  const fetchRestaurantData = async () => {
-    const data = await fetch(
-      `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=22.8555231&lng=88.7439874&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`
-    );
-
-    const jsonData = await data.json();
-    setResInfo(jsonData.data);
-    setMenuItemsList(jsonData?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[3]?.card?.card?.itemCards)
-  };
-
-  if (resInfo === null && menuItemsList.length === 0 ) return <ShimmerRestaurantCard />;
-  console.log(resId);
-
-  const {
-    name,
-    avgRating,
-    totalRatingsString,
-    city,
-    costForTwoMessage,
-    cuisines,
-  } = resInfo?.cards[2]?.card?.card?.info;
+  const { name, avgRating, totalRatingsString, city, costForTwoMessage, cuisines } = resInfo?.cards[2]?.card?.card?.info;
   const { minDeliveryTime, maxDeliveryTime } = resInfo?.cards[2]?.card?.card?.info?.sla;
-
 
   return (
     <>
@@ -69,9 +45,12 @@ const Restaurants = () => {
         </div>
 
         {/* Menu Items */}
-        {menuItemsList.map((e) => <RestaurantsMenuItems key={e?.card?.info?.id} itemData={e?.card?.info} /> )}
-
-        
+        {menuItemsList.map((e) => (
+          <RestaurantsMenuItems
+            key={e?.card?.info?.id}
+            itemData={e?.card?.info}
+          />
+        ))}
       </div>
     </>
   );
