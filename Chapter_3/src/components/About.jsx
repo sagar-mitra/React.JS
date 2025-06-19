@@ -20,8 +20,8 @@ class About extends Component {
     <div className="about-container">
       <h1>About Page</h1>
       <div className="about-cards">
-        {/* <UserCard name="Sagar Mitra" type="Functional" /> */}
-        <UserCardClass name="Sagar Mitra" type="Class based" age="23"/>
+        <UserCardClass name="First Child" type="Class based" age="23"/>
+        <UserCardClass name="Second Child" type="Class based" age="23"/>
       </div>
     </div>
   );
