@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import useOnlineStatus from "../utils/useOnlineStatus";
 import resList from "../utils/mockData";
 import RestaurantCard from "./RestaurantCard";
 import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
@@ -33,8 +34,14 @@ const Body = () => {
         ?.restaurants;
 
     setFilteredRestaurant(restaurants);
-    setListOfRestaurant(restaurants)
+    setListOfRestaurant(restaurants);
   };
+
+  // Applying online status : onLine/offLine
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) {
+    return <h1>Currently you are offline, check your internet connection</h1>;
+  }
 
   return (
     <>
@@ -70,13 +77,17 @@ const Body = () => {
         {filteredRestaurant.length === 0
           ? Array(15)
               .fill("")
-              .map((e,idx) => <ShimmerRestaurantCard key={idx} />)
+              .map((e, idx) => <ShimmerRestaurantCard key={idx} />)
           : filteredRestaurant.map((restData) => {
               return (
-                <Link key={restData.info.id} to={`/restaurants/${restData.info.id}`} ><RestaurantCard resData={restData} /></Link>
+                <Link
+                  key={restData.info.id}
+                  to={`/restaurants/${restData.info.id}`}
+                >
+                  <RestaurantCard resData={restData} />
+                </Link>
               );
             })}
-           
       </div>
     </>
   );
