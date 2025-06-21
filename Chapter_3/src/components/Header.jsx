@@ -21,6 +21,9 @@ const Header = () => {
           <Link to="/contact" className="nav-a">
             Contact
           </Link>
+          <Link to="/grocery" >
+            Grocery
+          </Link>
           <a to="/cart" className="nav-a">
             Cart
           </a>
