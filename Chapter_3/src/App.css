@@ -61,7 +61,7 @@ nav-a:hover {
   color: #ff5722;
 } */
 
-.card {
+/* .card {
   padding: 2em;
 }
 
@@ -111,10 +111,10 @@ nav-a:hover {
 .restaurant-time {
   font-size: 14px;
   color: #555;
-}
+} */
 
 
-.bodyRestCards {
+/* .bodyRestCards {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -142,7 +142,7 @@ nav-a:hover {
   font-size: 16px;
   outline: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
+} */
 
 /* Shimmer UI */
 .shimmer-card {
@@ -197,15 +197,15 @@ nav-a:hover {
 
 /* Contact */
 
-.contact-container{
+/* .contact-container{
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 3rem;
-}
+} */
 
 /* Error Page  */
-.notfound-container {
+/* .notfound-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -227,4 +227,4 @@ nav-a:hover {
   font-size: 1.25rem;
   color: #555;
   margin-bottom: 30px;
-}
+} */
