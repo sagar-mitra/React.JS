@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import resList from "../utils/mockData";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withBelowAvgTag } from "./RestaurantCard";
 import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
 import { BODY_RESTAURANTS_API } from "../utils/constant";
 import { Link } from "react-router-dom";
@@ -33,9 +33,13 @@ const Body = () => {
       jsonData.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
 
+        console.log(jsonData);
+
     setFilteredRestaurant(restaurants);
     setListOfRestaurant(restaurants);
   };
+
+  const RestaurantCardAverage = withBelowAvgTag(RestaurantCard);
 
   // Applying online status : onLine/offLine
   const onlineStatus = useOnlineStatus();
@@ -74,7 +78,7 @@ const Body = () => {
           </button>
         </div>
       </div>
-      <div className="bodyRestCards flex flex-wrap gap-1.5">
+      <div className="bodyRestCards grid grid-cols-5 gap-4 ">
         {filteredRestaurant.length === 0
           ? Array(15)
               .fill("")
@@ -85,7 +89,8 @@ const Body = () => {
                   key={restData.info.id}
                   to={`/restaurants/${restData.info.id}`}
                 >
-                  <RestaurantCard resData={restData} />
+                  {restData.info.avgRating < 4.5 ? <RestaurantCardAverage resData={restData} /> :<RestaurantCard resData={restData} /> }
+                  
                 </Link>
               );
             })}
