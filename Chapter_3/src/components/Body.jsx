@@ -11,13 +11,21 @@ const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
-  // Filter button
+  if (listOfRestaurant.length === 0) return <ShimmerRestaurantCard />;
+
+  // Applying online status : onLine/offLine
+  const onlineStatus = useOnlineStatus();
+  if (onlineStatus === false) {
+    return <h1>Currently you are offline, check your internet connection</h1>;
+  }
+
+  console.log(onlineStatus);
+
+    // Filter button
   const handleFilterBtn = () => {
     let filteredList = listOfRestaurant.filter((res) => res.data.avgRating > 4);
     setFilteredRestaurant(filteredList);
   };
-
-  if (listOfRestaurant.length === 0) return <ShimmerRestaurantCard />;
 
   // Fetching data
   useEffect(() => {
@@ -33,7 +41,7 @@ const Body = () => {
       jsonData.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
 
-        console.log(jsonData);
+    console.log(jsonData);
 
     setFilteredRestaurant(restaurants);
     setListOfRestaurant(restaurants);
@@ -41,17 +49,14 @@ const Body = () => {
 
   const RestaurantCardAverage = withBelowAvgTag(RestaurantCard);
 
-  // Applying online status : onLine/offLine
-  const onlineStatus = useOnlineStatus();
-  if (onlineStatus === false) {
-    return <h1>Currently you are offline, check your internet connection</h1>;
-  }
-
   return (
     <div className=" flex flex-col gap-10 p-3 mt-8">
       <div className="body-upper flex flex-row-reverse items-center justify-between ">
         <div className="filter-btn ">
-          <button className="my-button py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" onClick={handleFilterBtn}>
+          <button
+            className="my-button py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+            onClick={handleFilterBtn}
+          >
             Top Rated Restaurant
           </button>
         </div>
@@ -89,8 +94,11 @@ const Body = () => {
                   key={restData.info.id}
                   to={`/restaurants/${restData.info.id}`}
                 >
-                  {restData.info.avgRating < 4.5 ? <RestaurantCardAverage resData={restData} /> :<RestaurantCard resData={restData} /> }
-                  
+                  {restData.info.avgRating < 4.5 ? (
+                    <RestaurantCardAverage resData={restData} />
+                  ) : (
+                    <RestaurantCard resData={restData} />
+                  )}
                 </Link>
               );
             })}
