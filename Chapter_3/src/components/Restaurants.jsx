@@ -74,7 +74,8 @@ const Restaurants = () => {
         </div>
 
         {/* Categories */}
-        <RestaurantMenuCategory data={categories}/>
+        {categories.map((e) => <RestaurantMenuCategory key={e.card.card.categoryId} data={e?.card?.card}/>)}
+        
       </div>
     </>
   );
