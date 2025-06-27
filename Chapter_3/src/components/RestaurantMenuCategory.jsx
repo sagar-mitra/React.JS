@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import RestaurantsMenuItems from "./RestaurantsMenuItems";
 
-const RestaurantMenuCategory = ({ data }) => {
-  const [showItem, setShowItem] = useState(false);
+const RestaurantMenuCategory = ({ data, showItem, setShowRestaurantMenu,}) => {
+  const [showItemMenu, setShowItemMenu] = useState(false);
 
   const { title, itemCards } =data;
 
   const handleClick = () => {
-    setShowItem((prev) => !prev);
+    setShowItemMenu((prev) => !prev);
+    setShowRestaurantMenu()
   };
 
   return (
@@ -22,10 +23,10 @@ const RestaurantMenuCategory = ({ data }) => {
           <span className="text-lg font-semibold">
             {title} ({itemCards.length})
           </span>
-          <span className="text-lg">{showItem ? "△" : "▽"}</span>
+          <span className="text-lg">{(showItemMenu && showItem) ? "△" : "▽"}</span>
         </div>
 
-        {showItem && <RestaurantsMenuItems itemCards={itemCards} />}
+        {(showItem && showItemMenu) && <RestaurantsMenuItems itemCards={itemCards} />}
       </div>
     </div>
   );

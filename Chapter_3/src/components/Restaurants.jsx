@@ -2,11 +2,16 @@ import { useParams } from "react-router-dom";
 import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
 import useRestaurantMenu from "../utils/useRestaurantMenu.js";
 import RestaurantMenuCategory from "./RestaurantMenuCategory.jsx";
+import { useState } from "react";
 
 const Restaurants = () => {
   const { resId } = useParams();
 
   const { resInfo, menuItemsList } = useRestaurantMenu(resId);
+
+  const [showRestaurantMenu, setShowRestaurantMenu] = useState(1);
+
+  const [showItemMenu, setShowItemMenu] = useState(false);
 
   // Showing ShimmerCard
   if (resInfo === null && menuItemsList.length === 0)
@@ -20,7 +25,6 @@ const Restaurants = () => {
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
       );
     });
-  console.log(resInfo?.cards[2]?.card?.card?.info);
 
   // Destructuring restaurant information
   const {
@@ -74,8 +78,14 @@ const Restaurants = () => {
         </div>
 
         {/* Categories */}
-        {categories.map((e) => <RestaurantMenuCategory key={e.card.card.categoryId} data={e?.card?.card}/>)}
-        
+        {categories.map((e, index) => (
+          <RestaurantMenuCategory
+            key={e.card.card.categoryId}
+            data={e?.card?.card}
+            showItem = {index === showRestaurantMenu ? true : false}
+            setShowRestaurantMenu = {() => setShowRestaurantMenu(index)}
+          />
+        ))}
       </div>
     </>
   );
