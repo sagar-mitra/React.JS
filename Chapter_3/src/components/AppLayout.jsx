@@ -3,6 +3,9 @@ import Footer from "./Footer";
 import Header from "./Header";
 
   const AppLayout = () => {
+    
+
+
     return (
       <div className=" p-3">
         <Header />

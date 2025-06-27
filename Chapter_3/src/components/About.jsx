@@ -1,3 +1,4 @@
+import UserContext from "../utils/UserContext";
 import UserCardClass from "./UserCardClass";
 import { Component } from "react";
 
@@ -17,7 +18,10 @@ class About extends Component {
      return (
     <div className="about-container mt-8 flex flex-col justify-center items-center">
       <h1 className="text-4xl font-bold mb-5">About Page</h1>
-      <div className="about-cards flex gap-6">
+      <UserContext.Consumer>
+        {({userName}) => <h1 className="text-lg font-semibold"> User: {userName}</h1>}
+      </UserContext.Consumer>
+      <div className="about-cards flex gap-6 mt-3">
         <UserCardClass name="First Child" type="Class based" age="23"/>
         <UserCardClass name="Second Child" type="Class based" age="23"/>
       </div>

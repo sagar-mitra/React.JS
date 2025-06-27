@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
   const [click, setClick] = useState(false);
   const handleLoginBtn = () => [setClick((prev) => !prev)];
+
+  // Using context
+  const {userName, id, address} = useContext(UserContext);
+
   return (
     <>
       <nav className="navbar flex items-center justify-between pl-2 pr-2">
@@ -67,6 +72,7 @@ const Header = () => {
           >
             {click === true ? "Login" : "Logout"}
           </button>
+          <p>{userName}</p>
         </div>
       </nav>
     </>
