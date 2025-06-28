@@ -31,7 +31,6 @@ const RestaurantCard = ({ resData }) => {
 // Higher Order Component
 export const withBelowAvgTag = (RestaurantCard) => {
   return (props) => {
-    console.log(props);
     return (
       <>
         <h1 className="absolute bg-red-300 px-1.5 py-1 rounded-lg mt-1.5 text-black z-100">Below Average</h1>

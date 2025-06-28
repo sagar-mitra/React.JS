@@ -1,13 +1,21 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 const RestaurantsMenuItems = ({ itemCards }) => {
+
+  const dispatch = useDispatch();
+
+  const handleAddItemBtn = () =>{
+    dispatch(addItem("briyani"))
+  }
+
   return (
     <div className="flex flex-col items-center ">
       {itemCards.map((e) => {
-        const { name, price, description, imageId } = e.card.info
-         const { rating, ratingCountV2 } = e.card.info.ratings?.aggregatedRating;
-
+        const { name, price, description, imageId, id } = e.card.info;
+        const { rating, ratingCountV2 } = e.card.info.ratings?.aggregatedRating;
         return (
-          <div className="menu-item w-2xl border-b-2 mt-3 mb-4 p-4 flex justify-between">
+          <div key={id}  className="menu-item w-2xl border-b-2 mt-3 mb-4 p-4 flex justify-between">
             <div className="menu-left flex flex-col gap-3  w-[67%]">
               <h3 className="item-name text-lg font-semibold">{name}</h3>
               <div className="price">₹{price / 100}</div>
@@ -24,7 +32,10 @@ const RestaurantsMenuItems = ({ itemCards }) => {
                 alt={name}
                 className="dish-img w-36 h-36 object-cover rounded-xl"
               />
-              <button className="py-1.5 px-5 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-800 text-gray-800 hover:border-gray-500 hover:text-gray-500 focus:outline-hidden focus:border-gray-500 focus:text-gray-500 disabled:opacity-50 disabled:pointer-events-none dark:border-white dark:text-white dark:hover:text-neutral-300 dark:hover:border-neutral-300 cursor-pointer">
+              <button
+                className="py-1.5 px-5 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-800 text-gray-800 hover:border-gray-500 hover:text-gray-500 focus:outline-hidden focus:border-gray-500 focus:text-gray-500 disabled:opacity-50 disabled:pointer-events-none dark:border-white dark:text-white dark:hover:text-neutral-300 dark:hover:border-neutral-300 cursor-pointer"
+                onClick={handleAddItemBtn}
+              >
                 ADD
               </button>
             </div>

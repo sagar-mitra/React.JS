@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
+import { Provider } from "react-redux";
 import "./App.css";
 import AppLayout from "./components/AppLayout";
 import UserContext from "./utils/UserContext";
+import appStore from "./utils/appStore";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -17,9 +19,11 @@ function App() {
 
   return (
     <>
-      <UserContext.Provider value={{ userName: userName }}>
-        <AppLayout />
-      </UserContext.Provider>
+      <Provider store={appStore}>
+        <UserContext.Provider value={{ userName: userName }}>
+          <AppLayout />
+        </UserContext.Provider>
+      </Provider>
     </>
   );
 }

@@ -19,7 +19,6 @@ const Body = () => {
     return <h1>Currently you are offline, check your internet connection</h1>;
   }
 
-  console.log(onlineStatus);
 
     // Filter button
   const handleFilterBtn = () => {
@@ -41,7 +40,6 @@ const Body = () => {
       jsonData.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
 
-    console.log(jsonData);
 
     setFilteredRestaurant(restaurants);
     setListOfRestaurant(restaurants);
