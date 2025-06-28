@@ -6,6 +6,7 @@ import About from "./components/About.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import Body from "./components/Body.jsx";
 import Restaurants from "./components/Restaurants.jsx";
+import Cart from "./components/Cart.jsx";
 // import Grocery from "./components/Grocery.jsx";
 
 // Chunking or Code Splitting
@@ -40,6 +41,10 @@ const appRouter = createBrowserRouter([
         path: "/restaurants/:resId",
         element: <Restaurants />,
       },
+      {
+        path: "/cart",
+        element: <Cart />
+      }
     ],
     errorElement: <ErrorPage />,
   },

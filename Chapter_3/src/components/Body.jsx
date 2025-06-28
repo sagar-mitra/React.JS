@@ -9,9 +9,7 @@ import { Link } from "react-router-dom";
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState(resList);
   const [searchText, setSearchText] = useState("");
-  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
-
-  if (listOfRestaurant.length === 0) return <ShimmerRestaurantCard />;
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]); 
 
   // Applying online status : onLine/offLine
   const onlineStatus = useOnlineStatus();
@@ -85,18 +83,19 @@ const Body = () => {
         {filteredRestaurant.length === 0
           ? Array(15)
               .fill("")
-              .map((e, idx) => <ShimmerRestaurantCard key={idx} />)
+              .map((e, idx) => <div key={idx} className=" flex"><ShimmerRestaurantCard /> </div>)
           : filteredRestaurant.map((restData) => {
               return (
                 <Link
                   key={restData.info.id}
                   to={`/restaurants/${restData.info.id}`}
                 >
-                  {restData.info.avgRating < 4.5 ? (
+                  {/* {restData.info.avgRating < 4.5 ? (
                     <RestaurantCardAverage resData={restData} />
                   ) : (
                     <RestaurantCard resData={restData} />
-                  )}
+                  )} */}
+                  <RestaurantCard resData={restData} />
                 </Link>
               );
             })}
