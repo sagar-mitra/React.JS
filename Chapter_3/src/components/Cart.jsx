@@ -7,6 +7,10 @@ const Cart = () => {
   // Read the cartItems from redux store
   const cartItems = useSelector((store) => store.cart.items);
 
+  // Another way to read the cart but it is not a good way
+  // const store = useSelector((store) => store)
+  // const cartItems = store.cart.items
+
   console.log(cartItems);
 
   // Calculating the total amount
@@ -79,12 +83,12 @@ const Cart = () => {
           </div>
           <div className="flex justify-between">
             <button
-              className="mt-4 w-[30%] bg-red-500 text-white py-2 rounded-xl hover:bg-red-600 transition"
+              className="mt-4 w-[30%] bg-red-500 text-white py-2 rounded-xl hover:bg-red-600 transition cursor-pointer"
               onClick={handleClearCartBtn}
             >
               Clear Cart
             </button>
-            <button className="mt-4 w-[30%] bg-orange-500 text-white py-2 rounded-xl hover:bg-orange-600 transition">
+            <button className="mt-4 w-[30%] bg-orange-500 text-white py-2 rounded-xl hover:bg-orange-600 transition cursor-pointer">
               Proceed to Checkout
             </button>
           </div>

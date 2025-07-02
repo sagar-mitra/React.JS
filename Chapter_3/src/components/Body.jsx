@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import resList from "../utils/mockData";
-import RestaurantCard, { withBelowAvgTag } from "./RestaurantCard";
+import RestaurantCard from "./RestaurantCard";
 import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
 import { BODY_RESTAURANTS_API } from "../utils/constant";
 import { Link } from "react-router-dom";
@@ -43,7 +43,7 @@ const Body = () => {
     setListOfRestaurant(restaurants);
   };
 
-  const RestaurantCardAverage = withBelowAvgTag(RestaurantCard);
+  // const RestaurantCardAverage = withBelowAvgTag(RestaurantCard);
 
   return (
     <div className=" flex flex-col gap-10 p-3 mt-8">

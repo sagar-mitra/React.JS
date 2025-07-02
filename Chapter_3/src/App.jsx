@@ -19,7 +19,9 @@ function App() {
 
   return (
     <>
+      {/* provider for redux store */}
       <Provider store={appStore}>
+        {/* provider for context */}
         <UserContext.Provider value={{ userName: userName }}>
           <AppLayout />
         </UserContext.Provider>
