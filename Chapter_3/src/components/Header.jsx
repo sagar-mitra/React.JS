@@ -8,7 +8,7 @@ const Header = () => {
   const handleLoginBtn = () => [setClick((prev) => !prev)];
 
   // Using context
-  const {userName, id, address} = useContext(UserContext);
+  // const {userName, id, address} = useContext(UserContext);
 
   // Subscribing to the store using Selector
   const cartItems = useSelector((store) => store.cart.items)
@@ -78,7 +78,6 @@ const Header = () => {
           >
             {click === true ? "Login" : "Logout"}
           </button>
-          <p>{userName}</p>
         </div>
       </nav>
     </>
