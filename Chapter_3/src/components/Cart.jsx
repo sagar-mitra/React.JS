@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { CDN_URL } from "../utils/constant";
 import { clearCart } from "../utils/cartSlice";
+import { toast } from "react-toastify";
 
 const Cart = () => {
   // Read the cartItems from redux store
@@ -29,6 +30,7 @@ const Cart = () => {
   const dispatch = useDispatch();
   const handleClearCartBtn = () => {
     dispatch(clearCart());
+    toast.success("Cart is cleared")
   };
 
   return (

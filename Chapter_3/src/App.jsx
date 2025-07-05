@@ -4,6 +4,7 @@ import "./App.css";
 import AppLayout from "./components/AppLayout";
 import UserContext from "./utils/UserContext";
 import appStore from "./utils/appStore";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [userName, setUserName] = useState("");
@@ -26,6 +27,11 @@ function App() {
           <AppLayout />
         </UserContext.Provider>
       </Provider>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        theme="colored"
+      />
     </>
   );
 }
