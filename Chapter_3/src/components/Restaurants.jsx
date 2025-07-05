@@ -3,6 +3,7 @@ import ShimmerRestaurantCard from "./ShimmerRestaurantCard";
 import useRestaurantMenu from "../utils/useRestaurantMenu.js";
 import RestaurantMenuCategory from "./RestaurantMenuCategory.jsx";
 import { useState } from "react";
+import ShimmerRestaurantMenuList from "./ShimmerRestaurantMenuList.jsx";
 
 const Restaurants = () => {
   const { resId } = useParams();
@@ -11,11 +12,11 @@ const Restaurants = () => {
 
   const [showRestaurantMenu, setShowRestaurantMenu] = useState(1);
 
-  const [showItemMenu, setShowItemMenu] = useState(false);
+  // const [showItemMenu, setShowItemMenu] = useState(false);
 
   // Showing ShimmerCard
   if (resInfo === null && menuItemsList.length === 0)
-    return <ShimmerRestaurantCard />;
+    return <ShimmerRestaurantMenuList />;
 
   // Filtering out all the categories
   const categories =

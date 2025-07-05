@@ -12,13 +12,13 @@ const RestaurantsMenuItems = ({ itemCards }) => {
   return (
     <div className="flex flex-col items-center ">
       {itemCards.map((e) => {
-        const { name, price, description, imageId, id } = e.card.info;
+        const { name, price, description, imageId, id, finalPrice, defaultPrice, } = e.card.info;
         const { rating, ratingCountV2 } = e.card.info.ratings?.aggregatedRating;
         return (
           <div key={id}  className="menu-item w-2xl border-b-2 mt-3 mb-4 p-4 flex justify-between">
             <div className="menu-left flex flex-col gap-3  w-[67%]">
               <h3 className="item-name text-lg font-semibold">{name}</h3>
-              <div className="price">₹{price / 100}</div>
+              <div className="price">₹{finalPrice/100  || defaultPrice/100  || price/100 }</div>
               <div className="rating text-sm">
                 <span className="star">★</span>
                 <span className="rate">{rating}</span>
