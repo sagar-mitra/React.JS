@@ -1,0 +1,87 @@
+{
+    "info": {
+        "id": "365828",
+        "name": "NIC Ice Creams",
+        "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/1/10/e860a140-2f13-4391-9edd-e123e69a96b8_365828.JPG",
+        "locality": "Uniworld City",
+        "areaName": "Rajarhat",
+        "costForTwo": "₹120 for two",
+        "cuisines": [
+            "Ice Cream",
+            "Desserts"
+        ],
+        "avgRating": 4.8,
+        "veg": true,
+        "parentId": "6249",
+        "avgRatingString": "4.8",
+        "totalRatingsString": "2.2K+",
+        "sla": {
+            "deliveryTime": 21,
+            "lastMileTravel": 2.7,
+            "serviceability": "SERVICEABLE",
+            "slaString": "20-25 mins",
+            "lastMileTravelString": "2.7 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2025-07-07 00:00:00",
+            "opened": true
+        },
+        "badges": {
+            "textExtendedBadges": [
+                {
+                    "iconId": "guiltfree/GF_Logo_android_3x",
+                    "shortDescription": "brand",
+                    "fontColor": "#7E808C"
+                }
+            ]
+        },
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {},
+                "textBased": {},
+                "textExtendedBadges": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "",
+                                "fontColor": "#7E808C",
+                                "iconId": "guiltfree/GF_Logo_android_3x",
+                                "shortDescription": "brand"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "ITEMS",
+            "subHeader": "AT ₹148"
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-44b5a62f-9ece-4561-92f8-481727ca0dc7"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/kolkata/nic-ice-creams-uniworld-city-rajarhat-rest365828",
+        "type": "WEBLINK"
+    }
+}
